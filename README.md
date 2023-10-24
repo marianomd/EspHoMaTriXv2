@@ -1,3 +1,59 @@
+This version allows to use EspHoMaTriXv2 with a HUB75 panel, or any other display supported by esphome.
+
+``` 
+esphome:
+  name: pixelclock
+  #friendly_name: pixelclock
+  platformio_options:
+    lib_deps:
+      - SPI
+      - Wire
+      - Adafruit BusIO
+      - adafruit/Adafruit GFX Library
+      - https://github.com/TillFleisch/ESP32-HUB75-MatrixPanel-DMA#optional_logging
+
+external_components:
+  - source: github://TillFleisch/ESPHome-HUB75-MatrixDisplayWrapper@main
+  - source:
+      type: git
+      url: https://github.com/marianomd/EspHoMaTriXv2
+      ref: main
+    refresh: 60s 
+    components: [ ehmtxv2 ]
+
+font:
+  - file: fonts/MatrixLight6.bdf
+    id: default_font
+    glyphs:  |
+      ! "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz°
+
+display:
+  - platform: matrix_display
+    id: matrix
+    width: 64
+    height: 64
+    E_pin: 18
+    rotation: 0°
+    update_interval: 16ms
+    auto_clear_enabled: true
+    lambda: |-
+      id(rgb8x32)->tick();
+      id(rgb8x32)->draw();
+
+ehmtxv2:
+  id: rgb8x32
+  icons2html: true
+  matrix_component: matrix
+  time_component: esptime
+  time_format: "%H:%M"
+  date_format: "%d.%m."
+  show_seconds: false
+  # Uncomment below if using the mateine font
+  default_font_id: default_font
+  special_font_id: default_font
+
+```
+
 # EspHoMaTriX version 2 (EHMTXv2)
 
 [donation-badge]:https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white
