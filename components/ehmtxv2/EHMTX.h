@@ -137,7 +137,7 @@ namespace esphome
     void queue_status();
     void skip_screen();
     void hold_screen(int t = 30);
-    void set_display(addressable_light::AddressableLightDisplay *disp);
+    void set_display(display::DisplayBuffer *disp);
     void set_clock_time(uint16_t t = 10);
     void set_show_day_of_week(bool b=true);
     void set_show_seconds(bool b=false);

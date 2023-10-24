@@ -1019,7 +1019,7 @@ namespace esphome
     this->clock_time = t;
   }
 
-  void EHMTX::set_display(addressable_light::AddressableLightDisplay *disp)
+  void EHMTX::set_display(display::DisplayBuffer *disp)
   {
     this->display = disp;
     this->show_display = true;
