@@ -107,7 +107,7 @@ namespace esphome
     uint16_t scroll_step;
 
     EHMTX_queue *queue[MAXQUEUE];
-    addressable_light::AddressableLightDisplay *display;
+    display::DisplayBuffer *display;
     esphome::time::RealTimeClock *clock;
 
     bool show_seconds;
