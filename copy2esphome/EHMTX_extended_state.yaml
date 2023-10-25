@@ -11,7 +11,6 @@ blueprint:
         device:
           filter:
           - integration: esphome
-            model: EHMTXv2
     trigger_sensor:
       name: Which sensor state to show?
       description: This sensor state will be displayed.
