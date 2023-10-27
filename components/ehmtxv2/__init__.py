@@ -332,7 +332,7 @@ async def to_code(config):
             else:
                 duration = conf[CONF_FRAMEDURATION]
 
-            html_string += F"<BR><B><a href='{"https://developer.lametric.com/content/apps/icon_thumbs/" + conf[CONF_LAMEID]}'>{conf[CONF_ID]}</a></B>&nbsp;-&nbsp;({duration} ms):<BR>"
+            html_string += F"<BR><B><a href='https://developer.lametric.com/content/apps/icon_thumbs/{conf[CONF_LAMEID]}'>{conf[CONF_ID]}</a></B>&nbsp;-&nbsp;({duration} ms):<BR>"
             yaml_string += F"\"{conf[CONF_ID]}\","
             pos = 0 
             frameIndex = 0
